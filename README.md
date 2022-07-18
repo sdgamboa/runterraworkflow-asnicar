@@ -3,7 +3,17 @@
 This example will be done on a Linux operating system using the
 terminal.
 
+Laptop components
+
+Laptop: System76 Gazelle gaze16-3050
 OS: Pop!_OS 22.04 LTS x86_64
+CPU: 11th Gen Intel i7-11800H (16) @ 4.600GHz
+GPU: Intel TigerLake-H GT1 [UHD Graphics]
+Memory: 5822MiB / 31952MiB
+
+Internet connection
+Download speed: ~ 200 Mbps
+Upload speed: ~ 20 Mbps
 
 ## Download FASTQ files from the NCBI-SRA
 
@@ -57,6 +67,48 @@ head sra_ids.txt
 #> SRR4052043
 #> SRR4052044
 ```
+
+Now use the SRAToolkit to download the FASTQ files. Refer to the
+[SRAToolkit](https://github.com/ncbi/sra-tools/wiki) documentation for download, installation, and configuration
+instructions.
+
+Let's download to current directory:
+
+```bash
+## Configure the SRAToolkit to download to current working diretory (cwd)
+vdb-config --prefetch-to-cwd
+```
+
+Prefetch the accession numbers
+
+```bash
+mkdir fastq_files
+cd fastq_files
+for i in $(cat ../sra_ids.txt); do prefetch $i; done # ~ 25 min  ~ 200 Mbps 
+for i in $(cat ../sra_ids.txt); do fasterq-dump $i; done # ~ 15 min ~ 200 Mbps 
+
+```
+
+The output in the `fastq_files` directory should look like:
+
+```bash
+ls -lh | head
+#> total 117G
+#> drwxrwxr-x 2 samuel samuel 4.0K Jul 18 15:17 SRR4052021
+#> -rw-rw-r-- 1 samuel samuel 3.6G Jul 18 15:43 SRR4052021_1.fastq
+#> -rw-rw-r-- 1 samuel samuel 3.6G Jul 18 15:43 SRR4052021_2.fastq
+#> -rw-rw-r-- 1 samuel samuel  42M Jul 18 15:43 SRR4052021.fastq
+#> drwxrwxr-x 2 samuel samuel 4.0K Jul 18 15:18 SRR4052022
+#> -rw-rw-r-- 1 samuel samuel 4.2G Jul 18 15:44 SRR4052022_1.fastq
+#> -rw-rw-r-- 1 samuel samuel 4.2G Jul 18 15:44 SRR4052022_2.fastq
+#> -rw-rw-r-- 1 samuel samuel  45M Jul 18 15:43 SRR4052022.fastq
+#> drwxrwxr-x 2 samuel samuel 4.0K Jul 18 15:27 SRR4052023
+```
+
+Notice that the total size is over 100 GB.
+
+
+
 
 
 
