@@ -120,7 +120,7 @@ wc -l SRR4052021*fastq
 ```
 
 
-
+Total time to download data: about 45-60 minutes.
 
 
 
