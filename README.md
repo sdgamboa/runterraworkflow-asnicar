@@ -107,6 +107,20 @@ ls -lh | head
 
 Notice that the total size is over 100 GB.
 
+You get three fastq files per accession. Paired reads (\_1 and \_2) and
+unpaired reads (just fastq).
+
+
+```bash
+wc -l SRR4052021*fastq
+#>   54803376 SRR4052021_1.fastq
+#>   54803376 SRR4052021_2.fastq
+#>     607068 SRR4052021.fastq
+#>  110213820 total
+```
+
+
+
 
 
 
