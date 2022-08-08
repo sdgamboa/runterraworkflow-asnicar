@@ -5,14 +5,14 @@ terminal.
 
 Laptop components
 
-Laptop: System76 Gazelle gaze16-3050
-OS: Pop!_OS 22.04 LTS x86_64
-CPU: 11th Gen Intel i7-11800H (16) @ 4.600GHz
-GPU: Intel TigerLake-H GT1 [UHD Graphics]
-Memory: 5822MiB / 31952MiB
+Laptop: System76 Gazelle gaze16-3050<br>
+OS: Pop!_OS 22.04 LTS x86_64<br>
+CPU: 11th Gen Intel i7-11800H (16) @ 4.600GHz<br>
+GPU: Intel TigerLake-H GT1 [UHD Graphics]<br>
+Memory: 5822MiB / 31952MiB<br>
 
-Internet connection
-Download speed: ~ 200 Mbps
+Internet connection<br>
+Download speed: ~ 200 Mbps<br>
 Upload speed: ~ 20 Mbps
 
 
